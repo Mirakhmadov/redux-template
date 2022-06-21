@@ -1,0 +1,43 @@
+export const userMe = (payload) => async (dispatch, getState) => {
+    const {
+        auth: {currentUser, sentUserMe},
+    } = getState();
+    if (sentUserMe || currentUser || !localStorage.getItem(TOKEN)) return;
+    try {
+        const response = await dispatch({
+            api: meAuthApi,
+            types: [
+                types.AUTH_GET_CURRENT_USER_REQUEST,
+                types.AUTH_GET_USER_TOKEN_SUCCESS,
+                types.AUTH_GET_CURRENT_USER_ERROR,
+            ],
+        });
+        if (response.success) {
+            dispatch({
+                type: "updateState",
+                payload: {
+                    permissions: response.payload.permissions,
+                },
+            });
+            if (payload) {
+                dispatch({
+                    type: "updateStateOrder",
+                    payload: {currentUser: response.payload},
+                });
+            }
+            dispatch({
+                type: types.AUTH_GET_USER_TOKEN_SUCCESS,
+                payload: response.payload,
+            });
+            setStateRole(response.payload.role, dispatch);
+        } else {
+            dispatch({
+                type: types.AUTH_LOGOUT,
+            });
+        }
+    } catch (e) {
+        dispatch({
+            type: types.AUTH_LOGOUT,
+        });
+    }
+};

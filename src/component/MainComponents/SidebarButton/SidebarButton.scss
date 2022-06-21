@@ -1,0 +1,29 @@
+.open-close {
+  background: var(--black);
+  position: absolute;
+  top: 45px;
+  left: 0;
+  z-index: 99!important;
+  width: 30px;
+  height: 30px;
+  padding:1px 5px;
+  border: 1px solid var(--blue);
+  border-top-right-radius: 90px;
+  border-bottom-right-radius: 90px;
+  transition: all .3s;
+  cursor: pointer;
+  box-shadow: 1px 0 3px var(--blue);
+
+  svg {
+    stroke: var(--blue);
+    fill: var(--blue);
+  }
+
+}
+.open-close-active {
+  left: 199px;
+
+  svg {
+    transform: rotate(180deg);
+  }
+}

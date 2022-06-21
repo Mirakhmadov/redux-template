@@ -1,0 +1,55 @@
+:root {
+  --white: #fff;
+  --blue: #2AAE25;
+  --blue-dark: #12690f;
+  --black: #20232A;
+  --gray: #33373E;
+}
+
+@media only screen and (max-width: 300px) {
+  body {
+    display: none;
+  }
+}
+
+::-webkit-scrollbar {
+  border: 0;
+  background-color: var(--black);
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, var(--blue), var(--blue-dark));
+  transition: all 0.5s;
+}
+
+
+@font-face {
+  font-family: Roboto-Medium;
+  src: url("./resources/fonts/Roboto/Roboto-Medium.ttf");
+}
+
+@font-face {
+  font-family: Gilroy-Regular;
+  src: url("./resources/fonts/Gilroy/GILROY-REGULAR.TTF");
+}
+
+@font-face {
+  font-family: Gilroy-Bold;
+  src: url("./resources/fonts/Gilroy/GILROY-BOLD.TTF");
+}
+
+body {
+  background-color: var(--white);
+  font-family: 'Gilroy-Regular', sans-serif !important;
+  font-style: normal;
+  font-size: 16px;
+  outline: none !important;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none !important;
+}

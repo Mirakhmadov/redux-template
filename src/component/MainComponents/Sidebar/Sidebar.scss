@@ -1,0 +1,19 @@
+.left-sidebar{
+  z-index: 97!important;
+  width: 200px;
+  height: 100vh;
+  padding-top: 40px;
+  position: fixed;
+  left: -199px;
+  text-align: center;
+  padding-bottom: 60px;
+  border-right: 1px solid var(--blue);
+  box-shadow:  0 0 3px var(--blue);
+  transition: all .3s;
+  background: var(--black);
+  overflow-y: scroll;
+}
+
+.left-sidebar-active{
+  left: 0;
+}
